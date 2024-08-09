@@ -51,7 +51,7 @@
             color: #d81b60;
             margin-top: 10px;
         }
-        .postit {
+        .postit, .image-postit {
             position: absolute;
             background-color: #fffbea;
             border: 1px solid #ffd700;
@@ -61,12 +61,16 @@
             transform: rotate(-5deg);
             z-index: 0;
         }
+        .image-postit img {
+            max-width: 100px;
+            max-height: 100px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Naay, passa a vida toda comigo?</h1>
-        <p id="quadrado">Aceita?</p>
+        <h1>Feliz aniversário meu amor</h1>
+        <p id="quadrado">passa a vida toda comigo?</p>
         <div class="buttons">
             <button class="button" id="aceito">Aceito</button>
             <button class="button" id="naoAceito" onmouseover="moverBotao()">Não aceito</button>
@@ -85,7 +89,18 @@
     <div class="postit" style="top: 300px; left: 950px;">Gatona</div>
     <div class="postit" style="top: 100px; left: 800px;">Te Amo naay</div>
 
+
+    <!-- Efeito de Confetes -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script>
+        document.getElementById('aceito').addEventListener('click', () => {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        });
+
         function moverBotao() {
             var botao = document.getElementById("naoAceito");
             var maxX = window.innerWidth - botao.offsetWidth;
@@ -98,3 +113,4 @@
     </script>
 </body>
 </html>
+
