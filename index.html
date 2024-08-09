@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa Romântica</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f0e3;
+            margin: 0;
+            position: relative;
+        }
+        h1 {
+            color: #e91e63;
+        }
+        .container {
+            text-align: center;
+            z-index: 1;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background-color: #d81b60;
+        }
+        .button:active {
+            transform: scale(0.95);
+        }
+        #naoAceito {
+            position: absolute;
+        }
+        #quadrado {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d81b60;
+            margin-top: 10px;
+        }
+        .postit {
+            position: absolute;
+            background-color: #fffbea;
+            border: 1px solid #ffd700;
+            padding: 10px;
+            font-size: 14px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            transform: rotate(-5deg);
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Naay, passa a vida toda comigo?</h1>
+        <p id="quadrado">Aceita?</p>
+        <div class="buttons">
+            <button class="button" id="aceito">Aceito</button>
+            <button class="button" id="naoAceito" onmouseover="moverBotao()">Não aceito</button>
+        </div>
+    </div>
+
+    <!-- Post-its aleatórios -->
+    <div class="postit" style="top: 20px; left: 50px;">Eu te amo!</div>
+    <div class="postit" style="top: 150px; left: 200px;">nay você é incrível!</div>
+    <div class="postit" style="top: 300px; left: 100px;">Para sempre juntos!</div>
+    <div class="postit" style="top: 400px; left: 300px;">Minha morena!</div>
+    <div class="postit" style="top: 500px; left: 750px;">lindeza minha</div>
+    <div class="postit" style="top: 100px; left: 1100px;">Você é tudo que sempre pedi</div>
+    <div class="postit" style="top: 350px; left: 950px;">I love uuuuu</div>
+    <div class="postit" style="top: 400px; left: 1000px;">Amo tu princesa</div>
+    <div class="postit" style="top: 300px; left: 950px;">Gatona</div>
+    <div class="postit" style="top: 100px; left: 800px;">Te Amo naay</div>
+
+    <script>
+        function moverBotao() {
+            var botao = document.getElementById("naoAceito");
+            var maxX = window.innerWidth - botao.offsetWidth;
+            var maxY = window.innerHeight - botao.offsetHeight;
+            var posX = Math.random() * maxX;
+            var posY = Math.random() * maxY;
+            botao.style.left = posX + "px";
+            botao.style.top = posY + "px";
+        }
+    </script>
+</body>
+</html>
